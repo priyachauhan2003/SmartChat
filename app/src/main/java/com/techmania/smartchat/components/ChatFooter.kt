@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import org.w3c.dom.Text
 
@@ -34,13 +35,13 @@ fun ChatFooter(
     var inputText by remember{
             mutableStateOf("")
     }
-
+    val controller = LocalSoftwareKeyboardController.current
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
-            .offset(0.dp, -64.dp)
+            .offset(0.dp, -50.dp)
             .background(Color.LightGray)
             .padding(10.dp)
     ){
@@ -55,6 +56,7 @@ fun ChatFooter(
         IconButton(onClick ={
             onClick(inputText)
             inputText=""
+            controller?.hide()
         }){
             Icon(Icons.Rounded.Send, contentDescription =null,
                 modifier = Modifier.size(40.dp).clip(CircleShape).background(Color.Black).padding(8.dp),

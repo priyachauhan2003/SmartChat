@@ -25,7 +25,15 @@ fun ChatHeader() {
         fontSize = 32.sp,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth().offset(0.dp,32.dp).background(Color.Cyan).padding(16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .offset(0.dp, 32.dp)
+            .background(Color.Cyan)
+            .padding(16.dp)
     )
+}
+
+@Composable
+fun ChatScreen() {
 
 }

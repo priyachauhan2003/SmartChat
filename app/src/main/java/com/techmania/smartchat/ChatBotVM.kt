@@ -3,6 +3,7 @@ package com.techmania.smartchat
 import android.util.Log
 import android.view.View
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
@@ -13,6 +14,7 @@ class ChatBotVM:ViewModel() {
     val list by lazy{
         mutableStateListOf<ChatData>()
     }
+
     private val genAI by lazy {
         GenerativeModel(
             modelName = "gemini-1.5-flash",
